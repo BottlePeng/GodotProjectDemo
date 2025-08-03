@@ -1,2 +1,4 @@
 # 1.场景切换时的淡入淡出
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114652944074839&bvid=BV1HwTezvE8d&cid=30405298218&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+![](https://github.com/BottlePeng/GodotProjectDemo/edit/main/examples/悬浮提示窗.gif)
+
+灵感来源:[【场景切换与淡入淡出效果  | GoDot4教程】](https://www.bilibili.com/video/BV1HwTezvE8d/?share_source=copy_web&vd_source=4adc071e3b96a224398d9c6f3b728748) 
