@@ -1,5 +1,7 @@
 ## 1.场景切换时的淡入淡出
-<img scr="https://github.com/BottlePeng/GodotProjectDemo/raw/main/examples/淡入淡出.gif" width="200px">
+
+<img src="https://github.com/BottlePeng/GodotProjectDemo/raw/main/examples/淡入淡出.gif" width="200px">
+
 将scene_loader.tscn添加到`全局/自动加载`后,使用下面的函数即可实现淡入淡出切换场景
 ```
 chang_scene_with_fade(path:String,fadeTime:float)
