@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4eftq7t55nwi"]
+
+[ext_resource type="Script" uid="uid://bxod4ot0prna6" path="res://scene_loader.gd" id="1_6wayg"]
+
+[node name="SceneLoader" type="CanvasLayer"]
+script = ExtResource("1_6wayg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

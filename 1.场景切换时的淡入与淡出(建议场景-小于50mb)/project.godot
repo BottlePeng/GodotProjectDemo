@@ -1,0 +1,12 @@
+config_version=5
+
+[application]
+
+config/name="1.场景切换时的淡入与淡出(建议场景 小于50MB)"
+config/tags=PackedStringArray("特效")
+config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

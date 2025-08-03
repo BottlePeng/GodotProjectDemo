@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://1sg1p1l6npd6"]
+
+[ext_resource type="Texture2D" uid="uid://xkmeupsu5jmp" path="res://icon.svg" id="1_aoxie"]
+
+[sub_resource type="GDScript" id="GDScript_aoxie"]
+script/source = "extends PanelContainer
+
+const TIP = preload(\"res://tip.tscn\")
+var tip
+@export_multiline var content:String
+
+##鼠标移入,显示tip
+func _on_mouse_entered() -> void:
+	tip = TIP.instantiate()
+	tip.set_mouse_tip(content)
+	add_child(tip)
+	tip.show()
+
+##鼠标移出,销毁tip
+func _on_mouse_exited() -> void:
+	if tip:
+		tip.hide()
+		tip.queue_free()
+"
+
+[node name="MousePanel" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_aoxie")
+content = "[img=40x40]res://icon.svg[/img][b]加粗,40x40的图片[/b]
+[i]第一行斜体[/i]
+[color=red]第二行,内容很长,第二行,内容很长,第二行,内容很长,第二行,内容很长[/color ]
+[s]第三行删除线[/s]
+[u]第四行下划线[/u]
+第五行普通文本"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_aoxie")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

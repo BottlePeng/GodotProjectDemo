@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://oiwwlbtbjjro"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ieg28"]
+bg_color = Color(0.38376, 0.487867, 0.74791, 0.560784)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.174275, 5.53504e-05, 0.617248, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="GDScript" id="GDScript_ieg28"]
+script/source = "extends PanelContainer
+
+#视图大小
+var viemport_size:Vector2
+#初始位置
+var initial_pos:Vector2
+#鼠标偏移量
+var mouse_offset:Vector2 = Vector2.ONE * 5.0
+
+func _ready()-> void:
+	#获取视图大小
+	viemport_size = get_viewport_rect().size
+	#默认为隐藏
+	hide()
+	
+##悬浮框内容
+func set_mouse_tip(content:String):
+	%Content.clear()
+	$Content.append_text(content)
+
+##大小变化时调整位置
+func _on_resized() -> void:
+	#如果超过下边框,则在标上方显示
+	if get_global_mouse_position().y + size.y > viemport_size.y:
+		initial_pos.y = get_global_mouse_position().y - size.y - mouse_offset.y
+	else:
+		initial_pos.y += mouse_offset.y
+		
+	#如果超过右边框,则在左侧显示
+	if get_global_mouse_position().x + size.x > viemport_size.x:
+		initial_pos.x = get_global_mouse_position().x - size.x - mouse_offset.x
+	else:
+		initial_pos.x += mouse_offset.x
+	
+	global_position = initial_pos
+		
+
+func _input(event: InputEvent) -> void:
+	if visible and event is InputEventMouseMotion:
+		initial_pos = get_global_mouse_position()
+		_on_resized()
+"
+
+[node name="Tip" type="PanelContainer"]
+top_level = true
+offset_right = 239.0
+offset_bottom = 47.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ieg28")
+script = SubResource("GDScript_ieg28")
+
+[node name="Content" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "这是一段测试文字"
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="resized" from="." to="." method="_on_resized"]

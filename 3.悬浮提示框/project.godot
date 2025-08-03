@@ -1,0 +1,9 @@
+config_version=5
+
+[application]
+
+config/name="3.悬浮提示框"
+config/tags=PackedStringArray("ui")
+run/main_scene="uid://git50ey1jlp3"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
