@@ -73,10 +73,10 @@ chang_scene_with_fade(path:String,fadeTime:float)
 ### 使用方法:  
 1.修改`GridMgr`节点的`columns`属性可以更改背包每行的格子数量  
 2.在`GridMgr`节点下增加新的`grid`场景即可添加格子  
-3.`resources\cell_bg`为格子背景(:exclamation:`PanelContainer`节点的背景也使用的此文件,需要修改背景可另外设置)  
+3.`resources\cell_bg`为格子背景( :exclamation:`PanelContainer`节点的背景也使用的此文件,需要修改背景可另外设置)  
 4.`item`的图标由`resources\item_icon`切割而来,`item`的逻辑是为了实现背包系统而制作的,正式使用时需按照需要自行调整实现逻辑  
 
 ### 来源:
-> :exclamation: 本项目实现洛奇与来源项目不同,仅使用来源项目的图标资源以及实现思路
+> :exclamation:本项目实现洛奇与来源项目不同,仅使用来源项目的图标资源以及实现思路
  
 [【Godot类暗黑、背包乱斗的背包系统 - 背包系统介绍】](https://www.bilibili.com/video/BV1yJmdYWEAP/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=6c81251a45d4df2f6a2cddd01d3608aa) 
