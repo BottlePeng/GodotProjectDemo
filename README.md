@@ -77,6 +77,6 @@ chang_scene_with_fade(path:String,fadeTime:float)
 4.`item`的图标由`resources\item_icon`切割而来,`item`的逻辑是为了实现背包系统而制作的,正式使用时需按照需要自行调整实现逻辑  
 
 ### 来源:
-> :exclamation:本项目实现洛奇与来源项目不同,仅使用来源项目的图标资源以及实现思路
+> :exclamation:本项目实现逻辑与来源项目不同,仅使用来源项目的图标资源以及实现思路
  
 [【Godot类暗黑、背包乱斗的背包系统 - 背包系统介绍】](https://www.bilibili.com/video/BV1yJmdYWEAP/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=6c81251a45d4df2f6a2cddd01d3608aa) 
