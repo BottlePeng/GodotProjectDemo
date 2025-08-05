@@ -10,7 +10,7 @@ const ITEM = preload("res://scene/item.tscn")
 
 var picked_item_index:int = 0
 var pack_inventory:Array[Array] = []
-#储存二元数组[x,y],x为存储物品的ID,y为grid相对于 GridMgr的索引,没储存物品时数据位[]
+#储存二元数组[x,y],x为存储物品的ID,y为grid相对于 GridMgr的索引,没储存物品时数据为[]
 
 func _ready() -> void:
 	picked_item.hide()
