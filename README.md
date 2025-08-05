@@ -1,12 +1,30 @@
+- [一. 特效](#一-特效)
+  - [1.场景切换时的淡入淡出](#1场景切换时的淡入淡出)
+    - [演示](#演示)
+    - [使用方法](#使用方法)
+  - [2.line2d节点实现拖尾特效](#2line2d节点实现拖尾特效)
+    - [演示](#演示-1)
+    - [使用方法](#使用方法-1)
+- [二. UI](#二-ui)
+  - [3.悬浮提示框](#3悬浮提示框)
+    - [演示](#演示-2)
+    - [组成](#组成)
+    - [使用方法](#使用方法-2)
+  - [4.不规则物品背包](#4不规则物品背包)
+    - [演示](#演示-3)
+    - [组成](#组成-1)
+    - [使用方法:](#使用方法-3)
+  
+# 一. 特效
 ## 1.场景切换时的淡入淡出
-演示:  
-<img src="examples\渐入渐出.gif" width="400">  
+### 演示  
+<img src="examples\1_演示_1.gif" width="400">  
 
 
-使用方法:  
+### 使用方法  
 1.将scene_loader.tscn添加到`全局/自动加载`
 
-<img src="examples\全局设置.png" width="400">  
+<img src="examples\1_使用方法_1.png" width="400">  
 
 2.使用`chang_scene_with_fade`函数代替`get_tree().change_scene_to_file`使用即可
 
@@ -19,23 +37,33 @@ chang_scene_with_fade(path:String,fadeTime:float)
 灵感来源:[【场景切换与淡入淡出效果  | GoDot4教程】](https://www.bilibili.com/video/BV1HwTezvE8d/?share_source=copy_web&vd_source=4adc071e3b96a224398d9c6f3b728748) 
 
 ## 2.line2d节点实现拖尾特效
-演示:   
-<img src="examples\拖尾特效.gif" width="400" >  
+### 演示   
+<img src="examples\2_演示_1.gif" width="400" >  
 
+### 使用方法    
 修改line2d节点的属性即可实现各种样式的拖尾特效<br>
-<img src="examples\line2d节点设置.png" width="200">  
+<img src="examples\2_使用方法_1.png" width="200">  
 
+# 二. UI
 ## 3.悬浮提示框
-演示:  
-<img src="examples\悬浮提示窗.gif" width="400">  
+### 演示  
+<img src="examples\3_演示_1.gif" width="400">  
 
-组成:  
-<img src="examples\悬浮窗场景.png">  
+### 组成  
+<img src="examples\3_组成_1.png">  
 
-
-使用方法:  
+### 使用方法  
 1.将`tip.tscn`添加到项目中  
 2.将`mouse_panel.tscn`中的代码添加到需要使用悬浮窗的对象上  
 3.修改`tip.tscn`的`tip`节点可以实现不同的悬浮窗背景  
 4.修改`tip.tscn`的`content`节点可以显示不同的内容,可使用BBCode格式  
-<img src="examples\tip节点.png">  
+<img src="examples\3_使用方法_1.png">  
+
+## 4.不规则物品背包
+### 演示  
+<img src="examples\4_演示_1.gif" width="400">  
+
+### 组成  
+<img src="examples\4_组成_1.png">  
+
+### 使用方法:  

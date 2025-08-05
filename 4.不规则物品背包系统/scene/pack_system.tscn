@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbtqhcixqgbp6"]
+
+[ext_resource type="Script" uid="uid://cm301cq6g41uc" path="res://scene/pack_system.gd" id="1_o2gl2"]
+[ext_resource type="Texture2D" uid="uid://36ubkmwjlho8" path="res://resources/cell_bg.png" id="2_xk6f4"]
+[ext_resource type="PackedScene" uid="uid://bbf2j1k87xtbt" path="res://scene/grid.tscn" id="3_j8x2o"]
+[ext_resource type="PackedScene" uid="uid://w2f0xsjctps3" path="res://scene/item.tscn" id="3_xk6f4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j8x2o"]
+texture = ExtResource("2_xk6f4")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="PackSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_o2gl2")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 83.0
+offset_bottom = 43.0
+text = "获取物品"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 48.0
+offset_right = 83.0
+offset_bottom = 79.0
+text = "销毁物品"
+
+[node name="Pack" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 13.0
+offset_right = 152.0
+offset_bottom = 63.0
+mouse_filter = 0
+metadata/_edit_group_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="Pack"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j8x2o")
+
+[node name="GridMgr" type="GridContainer" parent="Pack/PanelContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="Grid0" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid1" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid2" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid3" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid4" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid5" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid7" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid8" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="Grid6" parent="Pack/PanelContainer/GridMgr" instance=ExtResource("3_j8x2o")]
+layout_mode = 2
+
+[node name="PickedItem" parent="." instance=ExtResource("3_xk6f4")]
+unique_name_in_owner = true
+z_index = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="gui_input" from="Pack/PanelContainer/GridMgr" to="." method="_on_grid_mgr_gui_input"]

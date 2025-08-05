@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://w2f0xsjctps3"]
+
+[ext_resource type="Script" uid="uid://dlpa7282kic6" path="res://scene/item.gd" id="1_4w2rt"]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_4w2rt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="ItemTextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2

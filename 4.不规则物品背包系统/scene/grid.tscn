@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbf2j1k87xtbt"]
+
+[ext_resource type="Script" uid="uid://cgrrxc16nkxqn" path="res://scene/grid.gd" id="1_5xkqp"]
+[ext_resource type="Texture2D" uid="uid://36ubkmwjlho8" path="res://resources/cell_bg.png" id="1_ctyjr"]
+
+[node name="Grid" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource("1_ctyjr")
+script = ExtResource("1_5xkqp")
