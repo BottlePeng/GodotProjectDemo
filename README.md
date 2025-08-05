@@ -67,7 +67,9 @@ chang_scene_with_fade(path:String,fadeTime:float)
 <img src="examples\2_2_演示_1.gif" width="400">  
 
 ### 组成    
-<img src="examples\2_2_组成_1.png">
+项目文件:  
+<img src="examples\2_2_组成_1.png">  
+背包场景节点树:  
 <img src="examples\2_2_组成_2.png" height="320">  
 
 ### 使用方法:  
