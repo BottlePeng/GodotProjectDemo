@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://u5jxxdycliei"]
+
+[ext_resource type="Script" uid="uid://caxrcjfv04cyn" path="res://hand.gd" id="1_fyqef"]
+
+[sub_resource type="Curve" id="Curve_fyqef"]
+_data = [Vector2(0, 0), 0.0, 5.7, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.7, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_m6e0p"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1.03481e-06, 0.289029, 0.371949, 1)
+
+[node name="Hand" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(400, 85)
+color = Color(1, 1, 1, 0.152941)
+script = ExtResource("1_fyqef")
+hand_curve = SubResource("Curve_fyqef")
+rotation_curve = SubResource("Curve_m6e0p")
+
+[node name="HandPile" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 100.0
+grow_vertical = 0
+color = Color(1, 1, 1, 0.152941)
+
+[node name="Label" type="Label" parent="HandPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "手
+牌
+堆"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscardPile" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -150.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(1, 1, 1, 0.152941)
+
+[node name="Label" type="Label" parent="DiscardPile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "弃
+牌
+堆"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_right = 207.0
+offset_bottom = 89.0
+text = "发牌"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -207.0
+offset_bottom = 89.0
+grow_horizontal = 0
+text = "弃牌"
+
+[connection signal="pressed" from="Button" to="Hand" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="Hand" method="_on_button_2_pressed"]

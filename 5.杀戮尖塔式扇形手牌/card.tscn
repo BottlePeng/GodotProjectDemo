@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bej7rrn3w82lf"]
+
+[ext_resource type="Texture2D" uid="uid://bspk4w55jiffw" path="res://cell_bg.png" id="1_kikvd"]
+[ext_resource type="Script" uid="uid://bqjdo4l4t4suh" path="res://card.gd" id="2_rjlel"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjlel"]
+texture = ExtResource("1_kikvd")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[node name="Card" type="Panel"]
+offset_right = 100.0
+offset_bottom = 150.0
+pivot_offset = Vector2(50, 75)
+theme_override_styles/panel = SubResource("StyleBoxTexture_rjlel")
+script = ExtResource("2_rjlel")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
