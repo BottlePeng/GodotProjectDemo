@@ -20,6 +20,9 @@
 	- [3.杀戮尖塔式扇形手牌](#3杀戮尖塔式扇形手牌)
 		- [演示](#演示-4)
 		- [实现逻辑](#实现逻辑-1)
+	- [3.虚拟摇杆](#3虚拟摇杆)
+		- [演示](#演示-5)
+		- [实现逻辑](#实现逻辑-2)
   
 # 一. 特效
 ## 1.场景切换时的淡入淡出
@@ -170,3 +173,26 @@ func _update_cards() -> void:
 		tween.parallel().tween_property(card,"rotation_degrees",rot,0.2)
 ```
 
+## 3.虚拟摇杆
+### 演示  
+<img src="examples\2_4_演示_1.gif" width="400">  
+
+### 实现逻辑
+```go
+## 设施摇杆状态
+func _set_joy() -> void:
+	if Input.is_action_just_pressed("click"):
+		global_position = get_global_mouse_position()
+	
+	if Input.is_action_pressed("click"):
+		offset = get_global_mouse_position() - global_position
+		if offset.length() >= 50:
+			offset = offset.normalized()
+		else :
+			offset /= 50
+		joy.position = offset * 50 - Vector2(10,10)
+		show()
+	else :
+		offset = Vector2.ZERO
+		hide()
+```
