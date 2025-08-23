@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbdnt5jqvubj0"]
+
+[ext_resource type="PackedScene" uid="uid://cp4q7laj3dj4f" path="res://sence/ui/joy_stick.tscn" id="1_csmqv"]
+
+[node name="Game" type="Node2D"]
+
+[node name="JoyStick" parent="." instance=ExtResource("1_csmqv")]

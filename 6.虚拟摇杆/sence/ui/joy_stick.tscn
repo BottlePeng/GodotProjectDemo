@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp4q7laj3dj4f"]
+
+[ext_resource type="Texture2D" uid="uid://bfu3duww4ww1p" path="res://resource/ui/joy_bg.png" id="1_k7pbb"]
+[ext_resource type="Texture2D" uid="uid://5xucwscxmv5j" path="res://resource/ui/joy.png" id="2_gfrf4"]
+
+[sub_resource type="GDScript" id="GDScript_ipgq1"]
+script/source = "extends Node2D
+
+@onready var bg: TextureRect = $BG
+@onready var joy: TextureRect = $Joy
+
+@onready var offset:Vector2 ## 偏移量
+
+@warning_ignore(\"unused_parameter\")
+func _process(delta: float) -> void:
+	_set_joy()
+	print(offset) #调试
+
+## 设施摇杆状态
+func _set_joy() -> void:
+	if Input.is_action_just_pressed(\"click\"):
+		global_position = get_global_mouse_position()
+	
+	if Input.is_action_pressed(\"click\"):
+		offset = get_global_mouse_position() - global_position
+		if offset.length() >= 50:
+			offset = offset.normalized()
+		else :
+			offset /= 50
+		joy.position = offset * 50 - Vector2(10,10)
+		show()
+	else :
+		offset = Vector2.ZERO
+		hide()
+"
+
+[node name="JoyStick" type="Node2D"]
+script = SubResource("GDScript_ipgq1")
+
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_k7pbb")
+
+[node name="Joy" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 10)
+texture = ExtResource("2_gfrf4")
